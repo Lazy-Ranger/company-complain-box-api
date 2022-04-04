@@ -3,6 +3,7 @@ const { COMPLAIN_CONTROLLER } = require("../controller/complain.controller");
 
 const COMPLAIN_ROUTES = Router();
 COMPLAIN_ROUTES.get("/list", COMPLAIN_CONTROLLER.getComplain);
+COMPLAIN_ROUTES.get("/employe/list", COMPLAIN_CONTROLLER.getComplainEmploye);
 COMPLAIN_ROUTES.post("/create", COMPLAIN_CONTROLLER.createComplain);
 
 module.exports = { COMPLAIN_ROUTES };

@@ -3,6 +3,7 @@ const cors = require("cors");
 const helmate = require("helmet");
 const morgan = require("morgan");
 const { APP_CONFIG } = require("../config");
+const { rateLimit } = require("../core/middlewares");
 const { DatabaseConnection } = require("../infra/mongoose");
 const { API_ROUTER } = require("./router");
 
@@ -18,6 +19,7 @@ class ExpressApp {
 
     // PreMiddleWares
 
+    this._app.use(rateLimit);
     this._app.use(morgan(APP_CONFIG.LOGGER_TYPE));
     this._app.use(cors());
     this._app.use(helmate());

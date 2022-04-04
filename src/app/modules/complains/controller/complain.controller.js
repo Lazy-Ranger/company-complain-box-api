@@ -12,7 +12,18 @@ class ComplainController {
 
   getComplain = async (req, res) => {
     try {
-      const complains = await this.complainQueryService.getComplain();
+      const body = req.query;
+      const complains = await this.complainQueryService.getComplain(req.body);
+      httpOK(res, complains);
+    } catch (err) {
+      httpException(res, err, `[ComplainController]:Complain not found`);
+    }
+  };
+
+  getComplainEmploye = async (req, res) => {
+    try {
+      const body = req.query;
+      const complains = await this.complainQueryService.getComplain(req.body);
       httpOK(res, complains);
     } catch (err) {
       httpException(res, err, `[ComplainController]:Complain not found`);

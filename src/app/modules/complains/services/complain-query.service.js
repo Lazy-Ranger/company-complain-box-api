@@ -6,8 +6,8 @@ class ComplainQueryService {
     this.complainModel = COMPLAIN_MODEL;
   }
 
-  async getComplain() {
-    const data = await this.complainModel.find({});
+  async getComplain(body) {
+    const data = await this.complainModel.find(body);
     return data;
   }
 }
